@@ -1,0 +1,40 @@
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+
+html, body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    background-color: #eeefe9;
+}
+h1, h2, h3, h4{
+    font-family: 'Abel', sans-serif;   
+}
+b, strong{
+    font-weight: 400;
+}
+.sl-bg-o {
+    background: #E08738;
+}
+.sl-bg-o .navbar-nav>li>a {
+    color: #fff;
+}
+.nav {
+    font-size: 12px;
+}
+.main-body {
+    margin-top: 50px;
+}

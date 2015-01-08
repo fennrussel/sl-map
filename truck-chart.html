@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Smartlogixinc App :: Angular-RequireJS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="" />
+    <!-- 
+        <link rel="stylesheet" href="app/bower_components/html5-boilerplate/css/normalize.css">
+        <link rel="stylesheet" href="app/bower_components/html5-boilerplate/css/main.css">
+    -->
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/font-awesome.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    <link rel='stylesheet' href="app/css/app.css">
+    <script src="app/bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js" type="javscript"></script>
+
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="head">
+            <h2>Sample demo for Track Chart</h2>
+        </div>
+        <div class="truck-chart clearfix">
+            <div class="tcop3">
+                <ul>
+                    <li class="tc1">
+                        <span></span>
+                    </li>
+                    <li class="tc2">
+                        <span></span>
+                    </li>
+                    <li class="tc3">
+                        <span></span>
+                    </li>
+                </ul>
+                <div class="truck-tcop3"></div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <br>
+            <br>
+            <form class="form-inline" role="form" name="truckform">
+                <div class="form-group col-xs-2">
+                    <label for="partition1">Partition 1 :</label>
+                    <input type="number" class="form-control" id="partition1" value="25" min="1" max="100" name="a">
+                </div>
+                <div class="form-group col-xs-2">
+                    <label for="partition2">Partition 2 :</label>
+                    <input type="number" class="form-control" id="partition2" value="40" min="1" max="100" name="b">
+                </div>
+                <div class="form-group col-xs-2">
+                    <label for="partition3">Partition 3 :</label>
+                    <input type="number" class="form-control" id="partition3" value="16" min="1" max="100" name="c">
+                </div>
+                <input type="button" value="Calculate" onclick="calc1(this.form)">
+            </form>
+        </div>
+    </section>
+
+    <script data-main="app/main" src="app/bower_components/requirejs/require.js"></script>
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/bootstrap.js"></script>
+    <script src="app/js/jquery.prettyPhoto.js"></script>
+    <script src="app/js/custom.js"></script>
+    <script type="text/javascript">
+    function stripBad(string) {
+        for (var i = 0, output = '', valid = "eE+/*-0123456789.()"; i < string.length; i++)
+            if (valid.indexOf(string.charAt(i)) != -1)
+                output += string.charAt(i)
+        return output;
+    }
+
+    function calc1(form) {
+        var cons = 124;
+        var in1 = stripBad(truckform.a.value) / 100;
+        var in2 = stripBad(truckform.b.value) / 100;
+        var in3 = stripBad(truckform.c.value) / 100;
+        var ansin1 = in1 * cons;
+        var ansin2 = in2 * cons;
+        var ansin3 = in3 * cons;
+        ansin1 = 'solid #fff ' + ansin1 + 'px';
+        ansin2 = 'solid #fff ' + ansin2 + 'px';
+        ansin3 = 'solid #fff ' + ansin3 + 'px';
+        $('.tc1').css('border-top', ansin1);
+        $('.tc2').css('border-top', ansin2);
+        $('.tc3').css('border-top', ansin3);
+
+        $('.tc1 span').html(Math.abs((truckform.a.value) - 100) + ' %');
+        $('.tc2 span').html(Math.abs((truckform.b.value) - 100) + ' %');
+        $('.tc3 span').html(Math.abs((truckform.c.value) - 100) + ' %');
+    }
+    </script>
+</body>
+
+</html>
